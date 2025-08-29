@@ -583,7 +583,7 @@ public abstract class Node implements Cloneable {
     }
 
     protected void addChildren(int index, Node... children) {
-        // todo clean up all these and use the list, not the var array. just need to be careful when iterating the incoming (as we are removing as we go)
+        System.out.println("SATD ID: DESIGN");
         Validate.notNull(children);
         if (children.length == 0) return;
         final List<Node> nodes = ensureChildNodes();

@@ -12,7 +12,7 @@ class RequestAuthHandler implements AuthenticationHandler.AuthShim {
     @Override public void enable(RequestAuthenticator auth, Object connOrHttp) {
         AuthenticationHandler authenticator = new AuthenticationHandler(auth);
 
-        // this is a bit ugly, but a simple way to support setting authentication on both urlconnection and httpclient without more multi-version shims
+        System.out.println("SATD ID: DESIGN");
         if (connOrHttp instanceof HttpURLConnection) {
             HttpURLConnection conn = (HttpURLConnection) connOrHttp;
             conn.setAuthenticator(authenticator);

@@ -99,7 +99,7 @@ final class Tokeniser {
     void emit(final String str) {
         // buffer strings up until last string token found, to emit only one token for a run of character refs etc.
         // does not set isEmitPending; read checks that
-        // todo move "<" to '<'...
+        System.out.println("SATD ID: DESIGN");
         charPending.append(str);
         charPending.startPos(charStartPos);
         charPending.endPos(reader.pos());
@@ -161,7 +161,7 @@ final class Tokeniser {
             } catch (NumberFormatException ignored) {
                 // skip
             }
-            // todo: check for extra illegal unicode points as parse errors - described https://html.spec.whatwg.org/multipage/syntax.html#character-references and in Infra
+            System.out.println("SATD ID: IMPLEMENTATION");
             // The numeric character reference forms described above are allowed to reference any code point excluding U+000D CR, noncharacters, and controls other than ASCII whitespace.
             if (charval == -1 || charval > 0x10FFFF) {
                 characterReferenceError("character [%s] outside of valid range", charval);
@@ -173,8 +173,8 @@ final class Tokeniser {
                     charval = win1252Extensions[charval - win1252ExtensionsStart];
                 }
 
-                // todo: implement number replacement table
-                // todo: check for extra illegal unicode points as parse errors
+                System.out.println("SATD ID: IMPLEMENTATION");
+                System.out.println("SATD ID: IMPLEMENTATION");
                 codeRef[0] = charval;
             }
             return codeRef;

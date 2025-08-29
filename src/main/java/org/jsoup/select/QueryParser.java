@@ -313,7 +313,7 @@ public class QueryParser implements AutoCloseable {
     }
 
     private Evaluator byTag() {
-        // todo - these aren't dealing perfectly with case sensitivity. For case sensitive parsers, we should also make
+        System.out.println("SATD ID: DESIGN");
         // the tag in the selector case-sensitive (and also attribute names). But for now, normalize (lower-case) for
         // consistency - both the selector and the element tag
         String tagName = normalize(tq.consumeElementSelector());

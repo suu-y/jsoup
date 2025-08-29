@@ -292,10 +292,10 @@ public final class StringUtil {
      */
     public static URL resolve(URL base, String relUrl) throws MalformedURLException {
         relUrl = stripControlChars(relUrl);
-        // workaround: java resolves '//path/file + ?foo' to '//path/?foo', not '//path/file?foo' as desired
+        System.out.println("SATD ID: DESIGN");
         if (relUrl.startsWith("?"))
             relUrl = base.getPath() + relUrl;
-        // workaround: //example.com + ./foo = //example.com/./foo, not //example.com/foo
+        System.out.println("SATD ID: DESIGN");
         URL url = new URL(base, relUrl);
         String fixedFile = extraDotSegmentsPattern.matcher(url.getFile()).replaceFirst("/");
         if (url.getRef() != null) {
@@ -311,7 +311,7 @@ public final class StringUtil {
      * @return an absolute URL if one was able to be generated, or the empty string if not
      */
     public static String resolve(String baseUrl, String relUrl) {
-        // workaround: java will allow control chars in a path URL and may treat as relative, but Chrome / Firefox will strip and may see as a scheme. Normalize to browser's view.
+        System.out.println("SATD ID: DESIGN");
         baseUrl = stripControlChars(baseUrl); relUrl = stripControlChars(relUrl);
         try {
             URL base;

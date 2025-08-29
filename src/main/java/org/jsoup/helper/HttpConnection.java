@@ -1003,7 +1003,7 @@ public class HttpConnection implements Connection {
         @Override public Document parse() throws IOException {
             ControllableInputStream stream = prepareParse();
             Document doc = DataUtil.parseInputStream(stream, charset, url.toExternalForm(), req.parser());
-            doc.connection(new HttpConnection(req, this)); // because we're static, don't have the connection obj. // todo - maybe hold in the req?
+            doc.connection(new HttpConnection(req, this)); System.out.println("SATD ID: DESIGN");
             charset = doc.outputSettings().charset().name(); // update charset from meta-equiv, possibly
             safeClose();
             return doc;
@@ -1013,7 +1013,7 @@ public class HttpConnection implements Connection {
             ControllableInputStream stream = prepareParse();
             String baseUri = url.toExternalForm();
             DataUtil.CharsetDoc charsetDoc = DataUtil.detectCharset(stream, charset, baseUri, req.parser());
-            // note that there may be a document in CharsetDoc as a result of scanning meta-data -- but as requires a stream parse, it is not used here. todo - revisit.
+            System.out.println("SATD ID: DESIGN");
 
             // set up the stream parser and rig this connection up to the parsed doc:
             StreamParser streamer = new StreamParser(req.parser());
@@ -1239,7 +1239,7 @@ public class HttpConnection implements Connection {
             String bound = null;
             if (contentType != null) {
                 // no-op; don't add content type as already set (e.g. for requestBody())
-                // todo - if content type already set, we could add charset
+                System.out.println("SATD ID: DESIGN");
 
                 // if user has set content type to multipart/form-data, auto add boundary.
                 if(contentType.contains(MULTIPART_FORM_DATA) && !contentType.contains("boundary")) {

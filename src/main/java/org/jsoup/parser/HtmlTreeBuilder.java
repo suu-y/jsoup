@@ -91,7 +91,7 @@ public class HtmlTreeBuilder extends TreeBuilder {
     protected void initialiseParse(Reader input, String baseUri, Parser parser) {
         super.initialiseParse(input, baseUri, parser);
 
-        // this is a bit mucky. todo - probably just create new parser objects to ensure all reset.
+        System.out.println("SATD ID: DESIGN");
         state = HtmlTreeBuilderState.Initial;
         originalState = null;
         baseUriSetFromDoc = false;
@@ -602,7 +602,7 @@ public class HtmlTreeBuilder extends TreeBuilder {
             switch (name) {
                 case "select":
                     transition(HtmlTreeBuilderState.InSelect);
-                    // todo - should loop up (with some limit) and check for table or template hits
+                    System.out.println("SATD ID: IMPLEMENTATION");
                     break LOOP;
                 case "td":
                 case "th":
@@ -906,7 +906,7 @@ public class HtmlTreeBuilder extends TreeBuilder {
         return a.normalName().equals(b.normalName()) &&
                 // a.namespace().equals(b.namespace()) &&
                 a.attributes().equals(b.attributes());
-        // todo: namespaces
+        // System.out.println("SATD ID: IMPLEMENTATION");
     }
 
     void reconstructFormattingElements() {

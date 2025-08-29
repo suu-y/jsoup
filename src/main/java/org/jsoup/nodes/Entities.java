@@ -340,7 +340,7 @@ public class Entities {
      * Jsoup: 167, 2
      */
     private static boolean canEncode(final CoreCharset charset, final char c, final CharsetEncoder fallback) {
-        // todo add more charset tests if impacted by Android's bad perf in canEncode
+        System.out.println("SATD ID: TEST");
         switch (charset) {
             case ascii:
                 return c < 0x80;
